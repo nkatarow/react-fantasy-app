@@ -1,4 +1,3 @@
-/* eslint react/no-did-mount-set-state: 0 */
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 

@@ -6,6 +6,7 @@ import {
   Link,
 } from 'react-router-dom';
 
+import PlayerList from './player-list/';
 import PlayerDetails from './player-details/';
 import logo from './logo.svg';
 import './App.css';
@@ -20,7 +21,7 @@ const App = () => (
       </header>
       <Switch>
         <Route exact path="/" component={PlayerDetails} />
-        <Route path="" />
+        <Route path="/player-list" component={PlayerList} />
       </Switch>
     </div>
   </Router>

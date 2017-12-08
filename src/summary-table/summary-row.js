@@ -13,17 +13,35 @@ export default class SummaryRow extends Component {
   }
 
   async componentDidMount() {
+    const TEST_DATA = true;
+    let result;
+
     try {
-      // const result = await fetch('/data/players/2593-week1.json');
-      const result = await fetch(`https://api.fantasydata.net/v3/nfl/stats/JSON/PlayerGameStatsByPlayerID/2016/${this.props.week}/${this.props.playerid}`, {
-        headers: { 'Ocp-Apim-Subscription-Key': 'bd237b0dc9074a3f9318d38be3c0d501' },
-      });
+      if (TEST_DATA) {
+        result = await fetch(`/data/players/2593-week${this.props.week}.json`);
+      } else {
+        result = await fetch(`https://api.fantasydata.net/v3/nfl/stats/JSON/PlayerGameStatsByPlayerID/2016/${this.props.week}/${this.props.playerid}`, {
+          headers: { 'Ocp-Apim-Subscription-Key': 'bd237b0dc9074a3f9318d38be3c0d501' },
+        });
+      }
       const stats = await result.json();
       this.setState({
         stats,
       });
     } catch (e) {
-      console.log(e); // eslint-disable-line
+      this.setState({
+        stats: {
+          GameDate: '-',
+          Opponent: '-',
+          GameScore: '-',
+          FantasyPointsYahoo: '-',
+          PassingAttempts: '-',
+          PassingCompletions: '-',
+          PassingYards: '-',
+          PassingTouchdowns: '-',
+          PassingInterceptions: '-',
+        },
+      });
     }
   }
 
@@ -35,7 +53,7 @@ export default class SummaryRow extends Component {
         <td>{this.props.week}</td>
         <td>{stats.GameDate}</td>
         <td>{stats.Opponent}</td>
-        <td />
+        <td>{stats.GameScore}</td>
         <td>{stats.FantasyPointsYahoo}</td>
         <td>{stats.PassingAttempts}</td>
         <td>{stats.PassingCompletions}</td>

@@ -10,11 +10,17 @@ class PlayerDetails extends Component {
   }
 
   async componentDidMount() {
+    const TEST_DATA = true;
+    let result;
+
     try {
-      const result = await fetch('/data/players/2593.json');
-      // const result = await fetch('https://api.fantasydata.net/v3/nfl/stats/JSON/Player/2593', {
-      //   headers: { 'Ocp-Apim-Subscription-Key': 'bd237b0dc9074a3f9318d38be3c0d501' },
-      // });
+      if (TEST_DATA) {
+        result = await fetch('/data/players/2593.json');
+      } else {
+        result = await fetch('https://api.fantasydata.net/v3/nfl/stats/JSON/Player/2593', {
+          headers: { 'Ocp-Apim-Subscription-Key': 'bd237b0dc9074a3f9318d38be3c0d501' },
+        });
+      }
       const player = await result.json();
       this.setState({
         player,

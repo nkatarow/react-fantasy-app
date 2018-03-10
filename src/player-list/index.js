@@ -47,17 +47,43 @@ export default class PlayerList extends Component {
         <table>
           <thead>
             <tr>
+              <th colSpan="4">Player</th>
+              <th colSpan="2">Fantasy</th>
+              <th colSpan="2">Rankings</th>
+              <th colSpan="3">Passing</th>
+              <th colSpan="3">Rushing</th>
+              <th colSpan="4">Recieving</th>
+              <th>Returns</th>
+              <th>Misc</th>
+              <th>Fumbles</th>
+            </tr>
+            <tr>
               <th>Player</th>
+              <th>Summary</th>
               <th>Position</th>
               <th>Bye</th>
               <th>Fantasy Points</th>
+              <th>Percent Owned</th>
+              <th>Projected</th>
+              <th>Actual</th>
+              <th>Yards</th>
               <th>Touchdowns</th>
+              <th>Interceptions</th>
+              <th>Attempts</th>
+              <th>Yards</th>
+              <th>Touchdowns</th>
+              <th>Targets</th>
+              <th>Receptions</th>
+              <th>Yards</th>
+              <th>Touchdowns</th>
+              <th>TD</th>
+              <th>2-Point</th>
+              <th>Lost</th>
             </tr>
           </thead>
           <tbody>
             {this.state.pageOfItems.map(player =>
-              <PlayerRow key={player.FantasyPlayerKey} playerid={player.FantasyPlayerKey} />,
-            )}
+              <PlayerRow key={player.FantasyPlayerKey} playerid={player.FantasyPlayerKey} />)}
           </tbody>
         </table>
 

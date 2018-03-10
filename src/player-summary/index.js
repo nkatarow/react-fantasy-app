@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import SummaryRow from '../summary-table/summary-row';
+import SummaryRow from '../player-summary/summary-row';
 
 function SummaryTable(props) {
   const rows = [];

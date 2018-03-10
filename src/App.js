@@ -7,20 +7,26 @@ import {
 } from 'react-router-dom';
 
 import PlayerList from './player-list/';
-import PlayerDetails from './player-details/';
-import logo from './logo.svg';
+import PlayerDetail from './player-detail/';
+import PlayerSummary from './player-summary/';
+
 import './App.css';
 
 const App = () => (
   <Router>
     <div className="App">
       <header className="App-header">
-        <Link to="/">
-          <img src={logo} className="App-logo" alt="logo" />
-        </Link>
+        <h1>Fantasy Football</h1>
+        <nav>
+          <ul>
+            <Link to="/player-list">Player List</Link>
+            <Link to="/player-detail/2593">Player Detail</Link>
+          </ul>
+        </nav>
       </header>
       <Switch>
-        <Route exact path="/" component={PlayerDetails} />
+        <Route path="/player-summary/:playerid" component={PlayerSummary} />
+        <Route path="/player-detail/:playerid" component={PlayerDetail} />
         <Route path="/player-list" component={PlayerList} />
       </Switch>
     </div>

@@ -131,8 +131,7 @@ export default class Pagination extends Component {
           (
             <li key={page} className={pager.currentPage === page ? 'active' : ''}>
               <a onClick={() => this.setPage(page)} onKeyDown={() => this.setPage(page)} tabIndex={0} role="link">{page}</a>
-            </li>),
-          )
+            </li>))
       }
         <li className={pager.currentPage === pager.totalPages ? 'disabled' : ''}>
           <a onClick={() => this.setPage(pager.currentPage + 1)} onKeyDown={() => this.setPage(pager.currentPage + 1)} tabIndex={0} role="link">Next</a>
